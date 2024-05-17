@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Modules{% endblock %}
+
+{% block body %}
+
+
+<div class="wrapper">
+
+
+
+    {% for course in courses %}
+
+    <p>
+        <a href="{{path('show_category',{'id' : course.category.id} )}}">
+            Catégorie : {{course.category.nameCategory}}
+        </a>
+    </p>
+
+    <p>
+        <a href="{{path('show_course', {'id' : course.id}) }}">
+            Module : {{course.nameCourse}}
+        </a>
+    </p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+
+    <section class="dashboard dashboard-session">
+
+        <h3>Session à venir :</h3>
+    
+        {% for session in sessions %}
+        <p>
+            <a href="{{path('show_session', {'id' : session.id}) }}">
+                Module {{session.sessionName}} - {{session.startDate | date("l d F Y")}} à {{session.startDate | date(" H:i")}} </li> 
+                <br> {{session.maxStudent}} places disponibles
+            </a> 
+        </p>
+            
+        {% endfor %}
+    
+        <a href="{{path('app_session')}}">
+            <small>Voir plus...</small>
+        </a>
+    
+    </section>
+    
+    <section class="dashboard dashboard-progress">
+    
+        <h3>Progression formation 2023-2024 :</h3>
+    
+        {% for formation in formations %}
+        
+        <p>
+            <a href="{{path('show_formation', {'id' : formation.id})}}">
+                Formation {{formation.nameFormation}} - Début :  
+            </a>
+        </p>
+
+        {% endfor %}
+    
+        <a href="{{path('app_formation')}}">
+            <small>Voir plus...</small>
+        </a>
+    
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{session.sessionName}} {% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+
+  <ul>
+        <li>
+                Session : {{session.sessionName}}
+        </li>
+        <ul>
+            <li>De {{session.startDate | date("M/D/Y")}} à {{session.endDate | date("m/d/Y")}} </li>
+            <li>Place restante : {{session.maxStudent}} </li>
+        </ul>
+    </ul>
+</div>
+
+{% endblock %}

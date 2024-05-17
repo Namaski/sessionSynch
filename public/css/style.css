@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", monospace;
+}
+
+:root {
+    --primary: #0096C7;
+    --secondary: #0080bb;
+    --action: #90E0EF;
+    --actionHover: #CAF0F8;
+    --white: #ffffff;
+}
+
+
+body {
+    background-color: var(--primary);
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--actionHover);
+}
+
+li {
+    list-style-type: none;
+}
+
+/************************ HEADER ********************************/
+
+header {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 15svw 40svw 15svw;
+    background-color: var(--secondary);
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+header>h3 {
+    font-size: 2.3em;
+}
+
+header>h3,
+header a {
+    color: var(--action);
+}
+
+header i {
+    color: var(--action);
+    font-size: 3.6em;
+    cursor: pointer;
+}
+
+header>ul {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6em;
+}
+
+/******************************** MAIN *******************************************/
+
+main{
+    min-height: 80vh;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.wrapper a {
+    color: var(--action);
+}
+
+.wrapper a:hover {
+    color: var(--actionHover);
+}
+
+/******************************** HOME ******************************************/
+
+.dashboard {
+    border: 1px solid var(--actionHover);
+    margin: 3rem 0;
+    padding: 1.6rem;
+    padding-right: 15%;
+}
+
+.dashboard h3 {
+    color: var(--white);
+}
+
+.dashboard p {
+    margin: 2rem 0;
+    font-size: 1.3em;
+}
+
+.dashboard a {
+    color: var(--white);
+}
+
+
+
+/******************************* FOOTER *************************************/
+
+footer {
+    height: 10vh;
+    font-size: 1.6em;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: var(--action);
+    background: rgb(0, 150, 199);
+    background: linear-gradient(180deg, rgba(0, 150, 199, 1) 0%, rgba(0, 119, 182, 1) 50%);
+}

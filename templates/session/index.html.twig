@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Sessions{% endblock %}
+
+{% block body %}
+
+
+<div class="wrapper">
+
+
+
+    {% for session in sessions %}
+    
+
+
+    <ul>
+        <li>
+            <a href="{{path('show_session', {'id' : session.id}) }}">
+                Session : {{session.sessionName}}
+            </a>
+        </li>
+        <ul>
+            
+            <li>Le {{session.startDate | date("l d F Y")}} à {{session.startDate | date(" H:i")}} </li>
+        
+            <li>Place restante : {{session.maxStudent}} </li>
+        
+        </ul>
+    </ul>
+
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

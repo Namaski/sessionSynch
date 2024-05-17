@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{formation.nameFormation}} {% endblock %}
+
+{% block body %}
+
+{{ dump(formation) }}
+<div class="wrapper">
+
+
+    <p>
+            Formation : {{formation.nameFormation}}
+    </p>
+
+
+</div>
+
+{% endblock %}
