@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Student!{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+    
+    <h1>Ajouter un Elève</h1>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.name) }}</div>
+        <div class="col-sm">{{ form_row(form.firstName) }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.city) }}</div>
+        <div class="col-sm">{{ form_row(form.birthdate) }}</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.sessions) }}</div>
+    </div>
+
+
+  
+    {{ form_row(form.Valider) }}
+
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

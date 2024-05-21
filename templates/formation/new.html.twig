@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Formation!{% endblock %}
+
+{% block body %}
+
+<div class="wrapper">
+    
+    <h1>Ajouter une formation</h1>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.nameFormation) }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.description) }}</div>
+    </div>
+
+  
+    {{ form_row(form.Valider) }}
+
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

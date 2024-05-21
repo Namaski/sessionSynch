@@ -8,8 +8,10 @@
 <div class="wrapper">
 
 
+    <div id="calendrier">
+    </div>
 
-    {% for session in sessions %}
+    {# {% for session in sessions %}
     
 
 
@@ -29,8 +31,33 @@
     </ul>
 
 
-    {% endfor %}
+    {% endfor %} #}
 
 </div>
 
+<script>
+
+    
+ 
+    window.onload = () => {
+        let calendarEl = document.querySelector('#calendrier')
+
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            locale: 'fr',
+            timeZone: 'Europe/Paris',
+            headerToolbar: {
+                start: 'prev',
+                center: 'title',
+                end: 'next'
+            },
+            allDaySlot: false,
+            events : {{ data|raw }}
+        })
+        
+        
+        calendar.render()
+    }
+    
+</script>
 {% endblock %}

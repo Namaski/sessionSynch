@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Course!{% endblock %}
+
+{% block body %}
+<div class="wrapper">
+    
+    <h1>Ajouter un module</h1>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.nameCourse) }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm">{{ form_row(form.category) }}</div>
+    </div>
+
+  
+    {{ form_row(form.Valider) }}
+
+    {{ form_end(form) }}
+
+</div>
+
+{% endblock %}

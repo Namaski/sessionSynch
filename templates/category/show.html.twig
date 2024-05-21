@@ -12,11 +12,13 @@
         <a href="{{path('show_category',{'id' : category.id} )}}">
             Catégorie : {{category.nameCategory}}
         </a>
+        <a class="btn btn-warning" href="{{ path('edit_category', {'id': category.id }) }}">Editer</a>
+        <a class="btn btn-danger" href="{{ path('delete_category', {'id': category.id }) }}">Supprimer</a>
     </p>
 
     <h3>Tout les modules : </h3>
     {% for course in category.courses %}
-        
+
     <p>
         <a href="{{path('show_course', {'id' : course.id}) }}">
             Module : {{course.nameCourse}}

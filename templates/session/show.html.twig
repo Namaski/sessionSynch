@@ -6,14 +6,18 @@
 
 <div class="wrapper">
 
-  <ul>
+    <ul>
         <li>
-                Session : {{session.sessionName}}
+            Session : {{session.sessionName}}
         </li>
         <ul>
             <li>De {{session.startDate | date("M/D/Y")}} à {{session.endDate | date("m/d/Y")}} </li>
             <li>Place restante : {{session.maxStudent}} </li>
         </ul>
+        <li>
+            <a class="btn btn-warning" href="{{ path('edit_session', {'id': session.id }) }}">Editer</a>
+            <a class="btn btn-danger" href="{{ path('delete_session', {'id': session.id }) }}">Supprimer</a>
+        </li>
     </ul>
 </div>
 

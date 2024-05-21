@@ -13,8 +13,10 @@
 
     <p>
         <a href="{{path('show_formation', {'id' : formation.id}) }}">
-            Module : {{formation.nameFormation}}
+            Formation : {{formation.nameFormation}}
         </a>
+        <a class="btn btn-warning" href="{{ path('edit_formation', {'id': formation.id }) }}">Editer</a>
+        <a class="btn btn-danger" href="{{ path('delete_formation', {'id': formation.id }) }}">Supprimer</a>
     </p>
 
     {% endfor %}
