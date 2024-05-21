@@ -19,7 +19,9 @@ class CourseController extends AbstractController
     //     return $this->render('course/index.html.twig', [
 
     //     ]);
-    // }
+    // } 
+    
+    
 
     #[Route('/course', name: 'app_course')]
     public function listCourse(CourseRepository $courseRepository): Response

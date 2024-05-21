@@ -6,7 +6,7 @@
 
 
 <div class="wrapper">
-    
+
     <h1>Ajouter une Session</h1>
 
     {{ form_start(form) }}
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-sm">{{ form_row(form.sessionName) }}</div>
     </div>
-    
+
     <div class="row">
         <div class="col-sm">{{ form_row(form.startDate) }}</div>
         <div class="col-sm">{{ form_row(form.endDate) }}</div>
@@ -28,10 +28,31 @@
         <div class="col-sm">{{ form_row(form.maxStudent) }}</div>
     </div>
 
+    <h3>Modules :</h3>
+    <div class="class-group row">
+        <div class="col-form-label col-sm-2">
+            &nbsp;
+        </div>
+        <div id="programme-fields-list" class="col-sm-10 remove-collection-widget"
+            data-prototype=" {{form_widget(form.programmes.vars.prototype)|e}}"
+            data-session="{{sessionId}}"
+            data-widget-tags="{{ '<p></p>'|e}}"
+            data-widget-counter="{{form.programmes|length}}">
+            {% for programmeField in form.programmes %}
+                <p>
+                    {{form_errors(programmeField)}}
+                    {{form_widget(programmeField, {'attr': {'class':'borders '}}) }}
+                </p>
+            {% endfor %}
+     </div>
+    </div>
+    <div>
+        <h3> Ajouter des Elèves :</h3>
+    </div>
     <div class="row">
         <div class="col-sm">{{ form_row(form.students) }}</div>
     </div>
-  
+
     {{ form_row(form.Valider) }}
 
     {{ form_end(form) }}
