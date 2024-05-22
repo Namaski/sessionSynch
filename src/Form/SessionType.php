@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Session;
 use App\Entity\Student;
 use App\Entity\Formation;
+use App\Form\ProgramType;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -55,9 +56,6 @@ class SessionType extends AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'prototype' => true,
-                'attr' => [
-                    'class' => 'uk-input'
-                ]
             ])
             ->add('students', EntityType::class, [
                 'class' => Student::class,
@@ -72,7 +70,7 @@ class SessionType extends AbstractType
             ])
             ->add('Valider', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'btn btn-success btn-lg'
                 ]
             ]
         );

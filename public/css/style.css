@@ -65,24 +65,6 @@ header>ul {
     font-size: 1.6em;
 }
 
-/******************************** MAIN *******************************************/
-
-main{
-    min-height: 80vh;
-}
-
-.wrapper {
-    width: 50%;
-    margin: 0 auto;
-}
-
-.wrapper a {
-    color: var(--action);
-}
-
-.wrapper a:hover {
-    color: var(--actionHover);
-}
 
 /******************************** HOME ******************************************/
 
@@ -106,6 +88,37 @@ main{
     color: var(--white);
 }
 
+
+/******************************** MAIN *******************************************/
+
+main{
+    min-height: 80vh;
+}
+
+.wrapper {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.wrapper a {
+    color: var(--action);
+}
+
+.wrapper a:hover {
+    color: var(--actionHover);
+}
+
+/*************************************MODULES*************************************/
+
+.accordion-item h2 button{
+    
+}
+
+.accordion-item {
+    /* background-color: black !important; */
+    --bs-accordion-active-bg: var(--secondary);
+    --bs-accordion-bg: (var(--primary)) !important;
+}
 
 
 /******************************* FOOTER *************************************/

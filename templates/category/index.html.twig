@@ -16,20 +16,24 @@
 
         {% set counter = ( counter | default(0) ) + 1 %}
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapse{{ "" ~ counter }}">
+            <div id="heading{{ "" ~ counter }}" class="accordion-header">
+                <div class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse{{ "" ~ counter }}" aria-expanded="true"
+                    aria-controls="collapse{{ "" ~ counter }}">
                     <a href="{{path('show_category',{'id' : category.id} )}}">
-                        Catégorie : {{category.nameCategory}}
-                        <a class="btn btn-warning" href="{{ path('edit_category', {'id': category.id }) }}">Editer</a>
-                        <a class="btn btn-danger"
-                            href="{{ path('delete_category', {'id': category.id }) }}">Supprimer</a>
+                        <h4>
+                            Catégorie : {{category.nameCategory}}
+                        </h4>
                     </a>
-                </button>
-            </h2>
+                   
+                        <a class="btn btn-warning" href="{{ path('edit_category', {'id': category.id }) }}">Editer</a>
+                        <a class="btn btn-danger" href="{{ path('delete_category', {'id': category.id }) }}">Supprimer</a>
+                   
+                </div>
+            </div>
 
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="heading{{ "" ~ counter }}"
-                data-bs-parent="#accordionExample">
+            <div id="collapse{{ "" ~ counter }}" class="accordion-collapse collapse "
+                aria-labelledby="heading{{ "" ~ counter }}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <ul>
                         {% for course in category.courses %}
@@ -52,6 +56,10 @@
         {% endfor %}
     </div>
 
+    
+
 </div>
+
+
 
 {% endblock %}

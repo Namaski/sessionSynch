@@ -22,7 +22,7 @@ class Formation
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(targetEntity: Session::class, mappedBy: 'formation')]
+    #[ORM\OneToMany(targetEntity: Session::class, mappedBy: 'formation', cascade: ['remove'])]
     private Collection $sessions;
 
     public function __construct()
