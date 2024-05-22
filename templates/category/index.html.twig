@@ -6,19 +6,51 @@
 
 <div class="wrapper">
 
+    <div>
+        <a class="btn btn-success" href="{{ path('new_category') }}">Ajouter</a>
+    </div>
 
 
-    {% for category in categorys %}
+    <div class="accordion" id="accordionExample">
+        {% for category in categorys %}
 
-    <p>
-        <a href="{{path('show_category',{'id' : category.id} )}}">
-            Catégorie : {{category.nameCategory}}
-        </a>
-        <a class="btn btn-warning" href="{{ path('edit_category', {'id': category.id }) }}">Editer</a>
-        <a class="btn btn-danger" href="{{ path('delete_category', {'id': category.id }) }}">Supprimer</a>
-    </p>
+        {% set counter = ( counter | default(0) ) + 1 %}
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapse{{ "" ~ counter }}">
+                    <a href="{{path('show_category',{'id' : category.id} )}}">
+                        Catégorie : {{category.nameCategory}}
+                        <a class="btn btn-warning" href="{{ path('edit_category', {'id': category.id }) }}">Editer</a>
+                        <a class="btn btn-danger"
+                            href="{{ path('delete_category', {'id': category.id }) }}">Supprimer</a>
+                    </a>
+                </button>
+            </h2>
 
-    {% endfor %}
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="heading{{ "" ~ counter }}"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <ul>
+                        {% for course in category.courses %}
+                        <li>
+                            <p>
+                                {{course.nameCourse}}
+                                <a class="btn btn-warning"
+                                    href="{{ path('edit_category', {'id': course.id }) }}">Editer</a>
+                                <a class="btn btn-danger"
+                                    href="{{ path('delete_category', {'id': course.id }) }}">Supprimer</a>
+                            </p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </div>
 
 </div>
 

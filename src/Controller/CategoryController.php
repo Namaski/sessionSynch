@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Course;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
@@ -16,7 +17,6 @@ class CategoryController extends AbstractController
     #[Route('/category', name: 'app_category')]
     public function index(CategoryRepository $categoryRepository): Response
     {
-
         $categorys = $categoryRepository->findAll();
 
         return $this->render('category/index.html.twig', [

@@ -11,8 +11,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class SessionType extends AbstractType
 {
@@ -47,6 +48,16 @@ class SessionType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ],
+            ])
+            ->add('programs', CollectionType::class, [
+                'entry_type' => ProgramType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'prototype' => true,
+                'attr' => [
+                    'class' => 'uk-input'
+                ]
             ])
             ->add('students', EntityType::class, [
                 'class' => Student::class,

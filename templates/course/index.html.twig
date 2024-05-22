@@ -7,9 +7,14 @@
 
 <div class="wrapper">
 
+    <div>
+        <a class="btn btn-success" href="{{ path('new_course') }}">Ajouter</a>
+    </div>
 
 
-    {% for course in courses %}
+    {{ dump(courses) }}
+
+    {# {% for category in courses.category %}
 
     <p>
         <a href="{{path('show_category',{'id' : course.category.id} )}}">
@@ -24,7 +29,8 @@
             <a class="btn btn-danger" href="{{ path('delete_course', {'id': course.id }) }}">Supprimer</a>
         </a>
     </p>
-    {% endfor %}
+    
+    {% endfor %} #}
 
 </div>
 
