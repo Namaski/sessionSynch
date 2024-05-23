@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/home', name: 'app_home')]
     public function index(SessionRepository $sessionRepository, FormationRepository $formationRepository): Response
     {
         $sessions = $sessionRepository->findBy([],[],3);

@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+{% for flash_error in app.flashes('verify_email_error') %}
+<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+{% endfor %}
+
+<section class="vh-50 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card bg-primary bg-gradient text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">S'enregistrer</h3>
+                        {{ form_errors(registrationForm) }}
+
+                        {{ form_start(registrationForm) }}
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+
+                                <div data-mdb-input-init class="form-outline">
+                                    {{ form_widget(registrationForm.username, {'attr' : {'class' : 'form-control
+                                    form-control-lg'}})}}
+                                    {# {{ form_label(registrationForm.username, 'Pseudo', {'attr' : {'class' :
+                                    'form-label'}})}} #}
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-4">
+
+                                <div data-mdb-input-init class="form-outline">
+                                    {{ form_widget(registrationForm.email, {'attr' : {'class' : 'form-control
+                                    form-control-lg'}})}}
+                                    {# {{ form_label(registrationForm.email, 'Email', {'attr' : {'class' :
+                                    'form-label'}})}} #}
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                            <div data-mdb-input-init class="form-outline datepicker w-100 mb-4">
+                                {{ form_widget(registrationForm.plainPassword.first, {'attr' : {'class' : 'form-control
+                                form-control-lg'}})}}
+                                {# {{ form_label(registrationForm.plainPassword.first, 'Mot de passe', {'attr' : {'class' :
+                                'form-label'}})}} #}
+                            </div>
+
+                            <div data-mdb-input-init class="form-outline datepicker w-100 mb-4">
+                                {{ form_widget(registrationForm.plainPassword.second, {'attr' : {'class' : 'form-control
+                                form-control-lg'}})}}
+                                {# {{ form_label(registrationForm.plainPassword.second, 'Repeter le mot de passe', {'attr'
+                                : {'class' : 'form-label'}})}} #}
+                            </div>
+
+                        </div>
+
+                            <div class="row">
+
+                                <div class=""></div>
+
+                                <div class="form-check d-flex justify-content-center ">
+                                    {{ form_widget(registrationForm.agreeTerms, {'attr' : {'class' : 'form-check-input
+                                    me-2'}})}}
+                                    {{ form_label(registrationForm.agreeTerms, "J'accepte les conditions utilisateurs",
+                                    {'attr' : {'class' : 'form-check-labek'}})}}
+                                </div>
+
+                                {# <div class="form-outline datepicker w-100">
+
+                                </div> #}
+
+
+                            </div>
+
+
+                        <div class="mt-4 pt-2">
+                            <input data-mdb-ripple-init class="btn btn-success btn-lg" type="submit" value="Submit" />
+                        </div>
+
+                        {{ form_end(registrationForm) }}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}
