@@ -57,6 +57,7 @@ class SessionType extends AbstractType
                 'by_reference' => false,
                 'prototype' => true,
             ])
+            
             ->add('students', EntityType::class, [
                 'class' => Student::class,
                 'choice_label' => function ($student) {

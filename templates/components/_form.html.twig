@@ -1,0 +1,143 @@
+{{ form_start(form, { 'attr': { 'class': 'space-y-6 ' } }) }}
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div class="md:col-span-2">
+        {{ form_row(form.images) }}
+    </div>
+    <div>
+        {{ form_label(form.color, "Couleur Principale") }}
+        {{ form_widget(form.color, {'attr': {'class': 'form-input', 'placeholder': 'Sélectionnez une couleur'} }) }}
+        {{ form_errors(form.color) }}
+    </div>
+</div>
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    {########################### BRAND #############################}
+    <div>
+        {{ form_label(form.brand, "Marque") }}
+        <select name="{{ form.brand.vars.full_name }}" id="{{ form.brand.vars.id }}" class="form-input">
+            <option value class="font-light" disabled selected>Sélectionner une marque</option>
+            {% for label, value in field_choices(form.brand) %}
+            <option value="{{ value }}" {{ form.brand.vars.value == value ? 'selected' : '' }}>{{ label }}</option>
+            {% endfor %}
+        </select>
+        {{ form_errors(form.brand) }}
+    </div>
+    {########################### MODEL #############################}
+    <div>
+        {{ form_label(form.model, "Modèle") }}
+        {{ form_widget(form.model, {'attr': {'class': 'form-input bg-tertiary','readonly' : '', 'placeholder': 'Sélectionnez un modèle', 'list' : 'allModel'} }) }}
+        <datalist id="allModel">
+        </datalist>
+        {{ form_errors(form.model) }}
+    </div>
+</div>
+
+<div class="relative space-y-6">
+    {# <div id="gray-out" class="absolute bg-tertiary/50 z-10 w-full h-full "></div> #}
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+
+        {########################### PRICE #############################}
+        <div>
+            {{ form_label(form.price, "Prix") }}
+            {{ form_widget(form.price, {'attr': {'class': 'form-input', 'placeholder': '€'} }) }}
+            {{ form_errors(form.price) }}
+        </div>
+
+        {########################### MILEAGE #############################}
+        <div>
+            {{ form_label(form.mileage, "Kilomètrage") }}
+            {{ form_widget(form.mileage, {'attr': {'class': 'form-input', 'placeholder': 'KM'} }) }}
+            {{ form_errors(form.mileage) }}
+        </div>
+
+        {########################### YEAR #############################}
+        <div>
+            {{ form_label(form.year, "Année") }}
+            {{ form_widget(form.year, {'attr': {'class': 'form-input'} }) }}
+            {{ form_errors(form.year) }}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+
+        {########################### BODY #############################}
+        <div>
+            {{ form_label(form.body, "Carrosserie") }}
+            <select name="{{ form.body.vars.full_name }}" id="{{ form.body.vars.id }}" class="form-input">
+                <option value="" class="font-light" disabled selected>Sélectionner une carrosserie</option>
+                {% for label, value in field_choices(form.body) %}
+                <option value="{{ value }}" {{ form.body.vars.value == value ? 'selected' : '' }}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            {{ form_errors(form.body) }}
+            {# {{ form_label(form.body, "Carrosserie") }}
+            {{ form_widget(form.body, {'attr': {'class': 'form-input', 'placeholder': 'Sélectionner une carrosserie'} })
+            }}
+            {{ form_errors(form.body) }} #}
+        </div>
+
+        {########################### GEARBOX #############################}
+        <div class="relative">
+            {{ form_label(form.gearbox, "Boite à vitesse") }}
+            <select name="{{ form.gearbox.vars.full_name }}" id="{{ form.gearbox.vars.id }}" class="form-input">
+                <option value="" disabled selected>Sélectionner une boite à vitesse</option>
+                {% for label, value in field_choices(form.gearbox) %}
+                <option value="{{ value }}" {{ form.gearbox.vars.value == value ? 'selected' : '' }}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            <small class="absolute text-nowrap text-secondary right-2/4 translate-x-2/4 font-semibold">Si semi-automatique à préciser en description</small>
+            {{ form_errors(form.gearbox) }}
+        </div>
+
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {########################### ENGINE #############################}
+        <div>
+            {{ form_label(form.engine, "Moteur") }}
+            {{ form_widget(form.engine, {'attr': {'class': 'form-input', 'placeholder': 'Il faudra enlever la
+            propriété'} })}}
+            {{ form_errors(form.engine) }}
+        </div>
+
+        {########################### CARCONDITION #############################}
+        <div>
+            {# I USE THERE FORM HELPER THAT RENDER FIELD VALUE WITHOUT ADDING ANY HTML TO IT TO CUSTIMIZE IT BETTER #}
+            {{ form_label(form.carCondition, "Condition") }}
+            <select name="{{ form.carCondition.vars.full_name }}" id="{{ form.carCondition.vars.id }}" class="form-input">
+                <option value="" disabled selected> Sélectionner un élément </option>
+                {% for label, value in field_choices(form.carCondition) %}
+                <option value="{{ value }}" {{ form.carCondition.vars.value == value ? 'selected' : '' }}>{{ label }}</option>
+                {% endfor %}
+            </select>
+            {{ form_errors(form.carCondition) }}
+        </div>
+
+    </div>
+
+    {########################### DESCRIPTION #############################}
+    <div>
+        {{ form_label(form.description, "Description") }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-input', 'placeholder': 'Ajoutez une description'} })
+        }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary w-full">Send</button>
+    </div>
+
+    {# On affiche les images si on est en édition #}
+    {# {% if app.request.attribute.get('_route') == %} #}
+    {# {% endif %} #}
+
+
+    {% do form.images.setRendered %}
+    {% do form.color.setRendered %}
+    {% do form.carCondition.setRendered %}
+    {% do form.gearbox.setRendered %}
+    {% do form.body.setRendered %}
+    {% do form.brand.setRendered %}
+</div>
+{{ form_end(form) }}
